@@ -1,0 +1,29 @@
+spec:
+  templates:
+
+  # Create a hydrogen chain
+  - name: create-hydrogen-chain
+    parent: generic-task
+    inputs:
+      parameters:
+      - name: num-of-hatoms
+      - name: bond-length
+      - name: command
+        value: python3 main_script.py
+      artifacts:
+      - name: main-script
+        path: /app/main_script.py
+        raw:
+          data: |
+            import json
+            from hydrogenchain import create_hydrogen_chain_geometry
+            geometry = create_hydrogen_chain_geometry({{inputs.parameters.num-of-atoms}},
+                                                       {{inputs.parameters.bond-length}})
+
+            geometry['schema'] = "molecular_geometry"
+            with open('molecule.json', 'w') as f:
+              f.write(json.dumps(geometry))
+    outputs:
+      artifacts:
+      - name: geometry
+        path: /app/molecule.json
