@@ -1,6 +1,6 @@
 """Function for building a hydrogen chain."""
 
-def create_diatomic_molecule_geometry(num_of_hatoms, bond_length):
+def create_hydrogen_chain_geometry(num_of_hatoms, bond_length):
     """Create a molecular geometry for a hydrogen chain, along the x-axis
 
     Args:
