@@ -6,7 +6,7 @@ spec:
     parent: generic-task
     inputs:
       parameters:
-      - name: num-of-hatoms
+      - name: num-of-atoms
       - name: bond-length
       - name: command
         value: python3 main_script.py
